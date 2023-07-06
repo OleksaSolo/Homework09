@@ -16,7 +16,7 @@ def add(*args):
     phone = args[1]
     #print(CONTACTS)
     CONTACTS[name] = phone
-    print(CONTACTS)
+    #print(CONTACTS)
     return f"Add success {name} {phone}"
 
 def hello(*args):
@@ -49,8 +49,11 @@ def phone(*args):
 
 def show_all(*args):
     result = "\nNotebook \n"
-    if len(CONTACTS) >0:
-        for key, value in CONTACTS.items():
+    if len(CONTACTS) > 0:
+        sort_contacts = sorted(CONTACTS.items(), key=lambda item: item[0])
+        print(sort_contacts)
+        for key, value in sort_contacts:
+        #for key, value in CONTACTS.items():
             result += "name: " + key + "  phone: " + value + "\n"
     else:
         result += "is blank"
